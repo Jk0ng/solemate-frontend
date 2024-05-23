@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react"
+import Footer from "./components/Footer"
+import Header from "./components/Header"
+import ShoeEdit from "./pages/ShoeEdit"
+import ShoeNew from "./pages/ShoeNew"
+import ShoeShow from "./pages/ShoeShow"
+import ShoeIndex from "./pages/ShoeIndex"
+import Home from "./pages/Home"
+import Checkout from "./pages/Checkout"
+import NotFound from "./pages/NotFound"
+import "./App.css"
+import mockShoes from "./mockShoes"
 
-function App() {
+const App = () => {
+  const [shoes, setShoes] = useState(mockShoes)
+  console.log(shoes)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+      <Header />
+      <Home />
+      <ShoeIndex/>
+      <ShoeEdit/>
+      <ShoeShow/>
+      <ShoeNew/>
+      <Checkout/>
+      <NotFound/>
+      <Footer/>
+    </>
+  )
+};
 
 export default App;
